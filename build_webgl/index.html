@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | CallJSFromCSharp</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 960px; height: 600px; background: #231F20"></canvas>
+    <script src="Build/build_webgl.loader.js"></script>
+    <script src='external.js'></script>
+    <script>
+      function aFunctionImplementedInHtmlFile(jsString) {
+        alert('Hello from index.html file! We received a string:"' + jsString + '"');
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/build_webgl.data",
+        frameworkUrl: "Build/build_webgl.framework.js",
+        codeUrl: "Build/build_webgl.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "CallJSFromCSharp",
+        productVersion: "0.1",
+      });
+    </script>
+  </body>
+</html>
